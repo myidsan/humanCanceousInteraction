@@ -1,6 +1,6 @@
 <div id="pannel">
   <mat-list *ngFor="let ms of msStoreList let i = index">
-  <div class="btnContainer" *ngIf="ms.shouldDo === true">
+  <div class="btnContainer" *ngIf="ms !== null && ms.shouldDo === true">
     <div class="milestone" id="milestone-box-{{i}}">
       {{ms.name}}
     </div>

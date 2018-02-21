@@ -100,10 +100,6 @@ export class NewmilestoneComponent implements OnInit {
       return 0;
     }
 
-
-
-
-
     this.ms.name = this.title;
     this.ms.days = this.days;
     this.ms.startDate = this.startDate;
