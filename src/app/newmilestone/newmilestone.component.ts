@@ -122,7 +122,7 @@ export class NewmilestoneComponent implements OnInit {
     this.ms = new MilestoneMaker(1, 'water', ['tue', 'sat'], [], '2018-02-17', '2018-02-26', 0);
     this.saveMilestone();
   }
-  
+
   prepopulateFields(ms) {
     this.title = ms.name;
     this.startDate = ms.startDate;
@@ -145,5 +145,4 @@ export class NewmilestoneComponent implements OnInit {
       this.assignNumber();
     }
   }
-
 }
