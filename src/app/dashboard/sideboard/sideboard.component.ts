@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MilestoneStoreService } from '../../service/milestone-store.service';
 import { Milestone } from '../../model/milestone';
+import * as firebase from 'firebase';
 import { CalendarcolorService } from '../../service/calendarcolor.service';
 
 
@@ -25,8 +26,13 @@ export class SideboardComponent implements OnInit {
     for (let i = 0; i < this.msStoreList.length; i++) {
       if (this.msStoreList[i].daysBool[this.today]) {
         this.msStoreList[i].shouldDo = true;
+        this.sendEmail();
       }
     }
+  }
+
+  sendEmail(){
+    console.log(firebase.auth().currentUser.email);
   }
 
 
@@ -36,7 +42,6 @@ export class SideboardComponent implements OnInit {
     document.getElementById('no-btn-'+`${i}`).style.display = 'none';
     document.getElementById('milestone-box-'+`${i}`).style.width = '8rem';
     this.calColor.complete();
-    console.log(i);
   }
 
   incomplete(i) {
@@ -49,15 +54,7 @@ export class SideboardComponent implements OnInit {
 
   ngOnInit() {
     this.doChekcer();
-    // for (let j = 0; j < this.msStoreList.length; j++) {
-    //   if (this.msStoreList[j].days.length !== 0) {
-    //     for (let i = 0; i < this.msStoreList[j].daysBool.length; i++) {
-    //       if (this.msStoreList[j].daysBool[i] === true) {
-    //         this.checklist.push(i);
-    //       }
-    //     }
-    //   }
-    // }
+
   }
 
 }
