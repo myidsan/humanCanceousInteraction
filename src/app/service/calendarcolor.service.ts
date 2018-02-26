@@ -7,6 +7,10 @@ import { Milestone } from '../model/milestone';
 @Injectable()
 export class CalendarcolorService {
 
+  // returns the weekday as a number
+  public today = new Date().getDay(); // 5 = saturday
+  public today_date = new Date().getDate();
+
   complete() {
     const d = new Date();
     document.getElementById(d.getDate().toString()).classList.add('active');
@@ -22,6 +26,8 @@ export class CalendarcolorService {
   }
 
   update_days_to_work(ms) {
+    console.log(this.today);
+    console.log(this.today_date);
     for (let i = 1; i < 29; i++) {
       if (ms.calender[i] !== null) {
         document.getElementById(`${i}`).classList.remove('active');
@@ -30,7 +36,9 @@ export class CalendarcolorService {
       }
     }
     for (let i = 1; i <= (new Date(ms.endDate)).getDate(); i++) {
-      if (ms.calender[i] !== 0) {
+      // check if it not 0 and if today is selected day of milestone
+      // currently hardcoded for Feb
+      if (ms.calender[i] !== 0 && ((ms.daysBool[(i + 3) % 7] ) === true)) {
         document.getElementById(`${i}`).classList.add('active');
         document.getElementById(`${i}`).style['background-color'] = 'white';
       }
