@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { CalendarComponent } from '../dashboard/calendar/calendar.component';
 import { SideboardComponent } from '../dashboard/sideboard/sideboard.component';
 import { Milestone } from '../model/milestone';
+import { MilestoneStoreService } from './milestone-store.service';
 
 @Injectable()
 export class CalendarcolorService {
@@ -11,7 +12,7 @@ export class CalendarcolorService {
   public today = new Date().getDay(); // 5 = saturday
   public today_date = new Date().getDate();
 
-  complete() {
+  complete(ms) {
     const d = new Date();
     document.getElementById(d.getDate().toString()).classList.add('active');
     document.getElementById(d.getDate().toString()).style['background-color'] = 'limegreen';
@@ -26,8 +27,6 @@ export class CalendarcolorService {
   }
 
   update_days_to_work(ms) {
-    console.log(this.today);
-    console.log(this.today_date);
     for (let i = 1; i < 29; i++) {
       if (ms.calender[i] !== null) {
         document.getElementById(`${i}`).classList.remove('active');
@@ -46,7 +45,7 @@ export class CalendarcolorService {
     for (let i = 1; i <= (new Date(ms.endDate)).getDate(); i++) {
       if (ms.calender[i] === 2) {
         // document.getElementById(`${i}`).style['background-color'] = 'limegreen';
-        this.complete();
+        this.complete(ms);
       } else if (ms.calender[i] === 3) {
         // document.getElementById(`${i}`).style['background-color'] = 'tomato';
         this.incomplete();
@@ -54,6 +53,6 @@ export class CalendarcolorService {
     }
   }
 
-  constructor() { }
+  constructor(private msStore: MilestoneStoreService) { }
 
 }

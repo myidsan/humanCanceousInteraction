@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit} from '@angular/core';
 import { MilestoneStoreService } from '../../service/milestone-store.service';
 import { Milestone } from '../../model/milestone';
 import { CalendarcolorService } from '../../service/calendarcolor.service';
@@ -9,9 +9,8 @@ import { CalendarcolorService } from '../../service/calendarcolor.service';
   templateUrl: './sideboard.component.html',
   styleUrls: ['./sideboard.component.css']
 })
-export class SideboardComponent implements OnInit {
+export class SideboardComponent implements OnInit, AfterViewInit {
   public msStoreList = this.msStore.milestones;
-  checklist: number[] = [];
 
   // returns the weekday as a number
   public today = new Date().getDay(); // 5 = saturday
@@ -30,32 +29,50 @@ export class SideboardComponent implements OnInit {
     }
   }
 
+  display_complete(i) {
+    document.getElementById('milestone-box-' + `${i}`).style['background-color'] = 'limegreen';
+    document.getElementById('milestone-box-' + `${i}`).style.width = '8rem';
+    document.getElementById('yes-btn-' + `${i}` ).style.display = 'none';
+    document.getElementById('no-btn-' + `${i}`).style.display = 'none';
+  }
   complete(i) {
-    document.getElementById('milestone-box-'+`${i}`).style['background-color'] = 'limegreen';
-    document.getElementById('milestone-box-'+`${i}`).style.width = '8rem';
-    document.getElementById('yes-btn-'+`${i}` ).style.display = 'none';
-    document.getElementById('no-btn-'+`${i}`).style.display = 'none';
-    console.log(this.msStore);
-    console.log(this.today_date);
-    // this.msStore.obs_milestones.subscribe(((val) => {
-    //   this.msStoreList = val;
-    // }));
+    this.display_complete(i);
     this.msStoreList[i].calender[this.today_date] = 2;
-    this.calColor.complete();
+    this.msStore.progress_val_updated = false;
+    this.msStore.update_progress_value(this.msStore.milestones[i]);
+    this.calColor.complete(this.msStore[i]);
+    this.msStoreList[i].modified = true;
   }
 
+  display_incomplete(i) {
+    document.getElementById('milestone-box-' + `${i}`).style['background-color'] = 'tomato';
+    document.getElementById('milestone-box-' + `${i}`).style.width = '8rem';
+    document.getElementById('yes-btn-' + `${i}`).style.display = 'none';
+    document.getElementById('no-btn-' + `${i}`).style.display = 'none';
+  }
   incomplete(i) {
-    document.getElementById('milestone-box-'+`${i}`).style['background-color'] = 'tomato';
-    document.getElementById('milestone-box-'+`${i}`).style.width = '8rem';
-    document.getElementById('yes-btn-'+`${i}`).style.display = 'none';
-    document.getElementById('no-btn-'+`${i}`).style.display = 'none';
-    console.log(this.today_date);
+    this.display_incomplete(i);
     this.msStoreList[i].calender[this.today_date] = 3;
     this.calColor.incomplete();
+    this.msStoreList[i].modified = true;
+  }
+
+  ngAfterViewInit() {
+    for (let i = 0; i < this.msStore.milestones.length; i++) {
+      if (this.msStore.milestones[i].modified === true) {
+        if (this.msStore.milestones[i].calender[this.today_date] === 2) {
+          this.display_complete(i);
+        } else if (this.msStore.milestones[i].calender[this.today_date] === 3) {
+          this.display_incomplete(i);
+        }
+      }
+    }
   }
 
   ngOnInit() {
     this.doChecker();
+    this.msStore.obs_milestones.subscribe(((val) => {
+      this.msStoreList = val;
+    }));
   }
-
 }

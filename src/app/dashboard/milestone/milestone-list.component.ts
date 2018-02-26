@@ -31,7 +31,6 @@ export class MilestoneListComponent implements OnInit {
       this.msStoreList = val;
     }));
     this.calColor.update_days_to_work(ms);
-    console.log(ms);
   }
 
   editmilestone(ms) {

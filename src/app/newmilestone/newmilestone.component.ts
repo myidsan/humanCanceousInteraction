@@ -33,7 +33,7 @@ export class NewmilestoneComponent implements OnInit {
               public router: Router) { }
 
   public ms = new MilestoneMaker( this.id, this.title, this.days, this.daysBool,
-                                  this.startDate, this.endDate, 0, this.days_to_work, false);
+                                  this.startDate, this.endDate, 0, this.days_to_work, false, false);
 
 
   freqCheck() {
@@ -206,6 +206,7 @@ export class NewmilestoneComponent implements OnInit {
     this.sat = ms.daysBool[6];
     this.ms.id = ms.id;
     this.ms.calender = ms.calender; // restore the sideboard value
+    this.ms.modified = ms.modified;
   }
 
   ngOnInit() {
