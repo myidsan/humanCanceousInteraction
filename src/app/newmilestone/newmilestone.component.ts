@@ -205,12 +205,14 @@ export class NewmilestoneComponent implements OnInit {
     this.fri = ms.daysBool[5];
     this.sat = ms.daysBool[6];
     this.ms.id = ms.id;
+    this.ms.calender = ms.calender; // restore the sideboard value
   }
 
   ngOnInit() {
     if (this.msStore.editdecide) {
       this.msStore.editdecide = false;
       this.prepopulateFields(this.msStore.tempms);
+      this.init_days_to_work();
     } else {
       this.assignNumber();
       this.init_days_to_work();
