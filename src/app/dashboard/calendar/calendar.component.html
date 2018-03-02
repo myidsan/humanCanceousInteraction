@@ -10,10 +10,10 @@
   <div>
       <div class="month">
         <ul>
-          <li class="prev">&#10094;</li>
-          <li class="next">&#10095;</li>
+          <li class="prev" (click)="prev_month()">&#10094;</li>
+          <li class="next" (click)="next_month()">&#10095;</li>
           <li>
-            February<br>
+            {{curr_month.months[curr_month.month]}}<br>
             <span class="year">2018</span>
           </li>
         </ul>
@@ -33,7 +33,7 @@
         <li> </li>
         <li> </li>
         <li> </li>
-        <li> </li>
+        <li><span id="0">1</span></li>
         <li><span id="1">1</span></li>
         <li><span id="2">2</span></li>
         <li><span id="3">3</span></li>

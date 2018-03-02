@@ -4,7 +4,6 @@ import { EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import {Observer} from 'rxjs/Observer';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
-// import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class MilestoneStoreService {

@@ -20,6 +20,7 @@ export interface Milestone {
   calender: number[];
   shouldDo?: boolean;
   modified: boolean;
+  days_to_do: number[];
 }
 
 export class MilestoneMaker implements Milestone {
@@ -32,5 +33,6 @@ export class MilestoneMaker implements Milestone {
               public progressValue: number,
               public calender: number[],
               public shouldDo = false,
-              public modified = false) { }
+              public modified = false,
+              public days_to_do: number[]) { }
 }

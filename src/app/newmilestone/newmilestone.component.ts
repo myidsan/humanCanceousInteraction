@@ -25,6 +25,7 @@ export class NewmilestoneComponent implements OnInit {
   endDate = '';
   dayseum = {0: 'sun', 1: 'mon', 2: 'tue', 3: 'wed', 4: 'thurs', 5: 'fri', 6: 'sat'};
   days_to_work: number[] = [];
+  days_to_do: number[] = [];
 
   email = '';
   today = new Date();
@@ -33,7 +34,7 @@ export class NewmilestoneComponent implements OnInit {
               public router: Router) { }
 
   public ms = new MilestoneMaker( this.id, this.title, this.days, this.daysBool,
-                                  this.startDate, this.endDate, 0, this.days_to_work, false, false);
+                                 this.startDate, this.endDate, 0, this.days_to_work, false, false, []);
 
 
   freqCheck() {
@@ -48,6 +49,14 @@ export class NewmilestoneComponent implements OnInit {
     for (let i = 0; i < this.daysBool.length; i++) {
       if (this.daysBool[i]) {
         this.days.push(this.dayseum[i]);
+      }
+    }
+  }
+
+  mark_days_to_do() {
+    for (let i = 0; i < 35; i++) {
+      if (this.daysBool[i % 7] === true && i > this.today.getDate()) {
+        this.days_to_do.push(i);
       }
     }
   }
@@ -207,6 +216,8 @@ export class NewmilestoneComponent implements OnInit {
     this.ms.id = ms.id;
     this.ms.calender = ms.calender; // restore the sideboard value
     this.ms.modified = ms.modified;
+    this.startDate = ms.startDate;
+    this.endDate = ms.endDate;
   }
 
   ngOnInit() {
