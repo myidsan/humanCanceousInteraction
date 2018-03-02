@@ -1,70 +1,81 @@
+<!--<div id="calendar">-->
+    <!--<div class="milestoneInfo"  *ngIf="calendarMilestone !== null">-->
+      <!--<p [innerText]="displayMilestoneName">-->
+      <!--</p>-->
+      <!--<p>-->
+        <!--Days since: days+-->
+      <!--</p>-->
+    <!--</div>-->
+
+  <!--<div>-->
+      <!--<div class="month">-->
+        <!--<ul>-->
+          <!--<li class="prev" (click)="prev_month()">&#10094;</li>-->
+          <!--<li class="next" (click)="next_month()">&#10095;</li>-->
+          <!--<li>-->
+            <!--{{curr_month.months[curr_month.month]}}<br>-->
+            <!--<span class="year">2018</span>-->
+          <!--</li>-->
+        <!--</ul>-->
+      <!--</div>-->
+
+      <!--<ul class="weekdays">-->
+        <!--<li>Su</li>-->
+        <!--<li>Mo</li>-->
+        <!--<li>Tu</li>-->
+        <!--<li>We</li>-->
+        <!--<li>Th</li>-->
+        <!--<li>Fr</li>-->
+        <!--<li>Sa</li>-->
+      <!--</ul>-->
+
+      <!--<ul class="days">-->
+        <!--<li> </li>-->
+        <!--<li> </li>-->
+        <!--<li> </li>-->
+        <!--<li><span id="0">1</span></li>-->
+        <!--<li><span id="1">1</span></li>-->
+        <!--<li><span id="2">2</span></li>-->
+        <!--<li><span id="3">3</span></li>-->
+        <!--<li><span id="4">4</span></li>-->
+        <!--<li><span id="5">5</span></li>-->
+        <!--<li><span id="6">6</span></li>-->
+        <!--<li><span id="7">7</span></li>-->
+        <!--<li><span id="8">8</span></li>-->
+        <!--<li><span id="9">9</span></li>-->
+        <!--<li><span id="10">10</span></li>-->
+        <!--<li><span id="11">11</span></li>-->
+        <!--<li><span id="12">12</span></li>-->
+        <!--<li><span id="13">13</span></li>-->
+        <!--<li><span id="14">14</span></li>-->
+        <!--<li><span id="15">15</span></li>-->
+        <!--<li><span id="16">16</span></li>-->
+        <!--<li><span id="17">17</span></li>-->
+        <!--<li><span id="18">18</span></li>-->
+        <!--<li><span id="19">19</span></li>-->
+        <!--<li><span id="20">20</span></li>-->
+        <!--<li><span id="21">21</span></li>-->
+        <!--<li><span id="22">22</span></li>-->
+        <!--<li><span id="23">23</span></li>-->
+        <!--<li><span id="24">24</span></li>-->
+        <!--<li><span id="25">25</span></li>-->
+        <!--<li><span id="26">26</span></li>-->
+        <!--<li><span id="27">27</span></li>-->
+        <!--<li><span id="28">28</span></li>-->
+        <!--<li><span id="29"></span></li>-->
+        <!--<li><span id="30"></span></li>-->
+        <!--<li><span id="31"></span></li>-->
+      <!--</ul>-->
+    <!--</div>-->
+<!--</div>-->
+
+<head>
+  <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+</head>
+<body>
 <div id="calendar">
-    <div class="milestoneInfo"  *ngIf="calendarMilestone !== null">
-      <p [innerText]="displayMilestoneName">
-      </p>
-      <p>
-        Days since: days+
-      </p>
-    </div>
-
-  <div>
-      <div class="month">
-        <ul>
-          <li class="prev" (click)="prev_month()">&#10094;</li>
-          <li class="next" (click)="next_month()">&#10095;</li>
-          <li>
-            {{curr_month.months[curr_month.month]}}<br>
-            <span class="year">2018</span>
-          </li>
-        </ul>
-      </div>
-
-      <ul class="weekdays">
-        <li>Su</li>
-        <li>Mo</li>
-        <li>Tu</li>
-        <li>We</li>
-        <li>Th</li>
-        <li>Fr</li>
-        <li>Sa</li>
-      </ul>
-
-      <ul class="days">
-        <li> </li>
-        <li> </li>
-        <li> </li>
-        <li><span id="0">1</span></li>
-        <li><span id="1">1</span></li>
-        <li><span id="2">2</span></li>
-        <li><span id="3">3</span></li>
-        <li><span id="4">4</span></li>
-        <li><span id="5">5</span></li>
-        <li><span id="6">6</span></li>
-        <li><span id="7">7</span></li>
-        <li><span id="8">8</span></li>
-        <li><span id="9">9</span></li>
-        <li><span id="10">10</span></li>
-        <li><span id="11">11</span></li>
-        <li><span id="12">12</span></li>
-        <li><span id="13">13</span></li>
-        <li><span id="14">14</span></li>
-        <li><span id="15">15</span></li>
-        <li><span id="16">16</span></li>
-        <li><span id="17">17</span></li>
-        <li><span id="18">18</span></li>
-        <li><span id="19">19</span></li>
-        <li><span id="20">20</span></li>
-        <li><span id="21">21</span></li>
-        <li><span id="22">22</span></li>
-        <li><span id="23">23</span></li>
-        <li><span id="24">24</span></li>
-        <li><span id="25">25</span></li>
-        <li><span id="26">26</span></li>
-        <li><span id="27">27</span></li>
-        <li><span id="28">28</span></li>
-        <li><span id="29"></span></li>
-        <li><span id="30"></span></li>
-        <li><span id="31"></span></li>
-      </ul>
-    </div>
+  <div id="calendar_header"><i class="icon-chevron-left"></i>          <h1></h1><i class="icon-chevron-right"></i>         </div>
+  <div id="calendar_weekdays"></div>
+  <div id="calendar_content"></div>
 </div>
+</body>
