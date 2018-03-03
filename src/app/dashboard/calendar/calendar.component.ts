@@ -119,9 +119,10 @@ export class CalendarComponent implements OnInit, AfterViewInit {
         .css("width", e + "px")
         .find("div")
         .css({
-          width: e / 7 + "px",
-          height: e / 7 + "px",
-          "line-height": e / 7 + "px"
+          display: 'flex';
+          width: (e / 7) - 1 + "px",
+          height: (e / 7) - 1 + "px",
+          "line-height": (e / 7) - 1 + "px"
         });
       n
         .find("#calendar_header")
@@ -218,6 +219,6 @@ export class CalendarComponent implements OnInit, AfterViewInit {
         r("next");
       }
     });
-    }
-  };
+    });
+  }
 }
