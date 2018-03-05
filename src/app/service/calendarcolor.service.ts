@@ -45,7 +45,7 @@ export class CalendarcolorService {
       // currently hardcoded for Feb
 
       let monthList = [i+4, i+3, i+3, i-1, i+1, i+4, i-1, i+2, i+5, i, i+3, i+5];
-      let month = Number(this.today_month) -1 ;
+      let month = Number(this.today_month) - 1 ;
       let val = monthList[month]
 
       if (ms.calender[i] !== 0 && ((ms.daysBool[val % 7] ) === true)) {

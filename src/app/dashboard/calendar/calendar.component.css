@@ -97,7 +97,7 @@ div .active{
 i[class^=icon-chevron]{
   text-align: center;
   color: #FFFFFF;
-  float: left;
+  /*float: left;*/
   width:15%;
   border-radius: 50%;
   z-index: 10;
