@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit {
 
 
   gotoMsPage() {
-    this.router.navigate(['/newmilestone']);
+    this.router.navigate(['newmilestone']);
   }
 
   logout() {

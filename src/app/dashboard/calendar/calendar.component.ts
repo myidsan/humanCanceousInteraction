@@ -1,4 +1,4 @@
-import {Component, OnInit, AfterContentChecked, AfterViewInit} from '@angular/core';
+import {Component, OnInit, AfterContentChecked, AfterViewInit, OnChanges} from '@angular/core';
 import { Milestone } from '../../model/milestone';
 import { MilestoneStoreService } from '../../service/milestone-store.service';
 import { Observable } from 'rxjs/Observable';
@@ -12,9 +12,9 @@ import * as $ from 'jquery';
   styleUrls: ['./calendar.component.css']
 })
 
-export class CalendarComponent implements OnInit, AfterViewInit {
+export class CalendarComponent implements OnInit, AfterViewInit, OnChanges {
   public milestonelist = this.msStore.milestones;
-  public calendarMilestone = this.msStore.calendarMilestone;
+  public calendarMilestone;
   public displayMilestoneName = '';
   public curr_month: Calendar;
   public today = new Date();
@@ -54,8 +54,9 @@ export class CalendarComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     if (this.displayMilestoneName !== null) {
       this.calendarMilestone = this.msStore.calendarMilestone;
+    } else {
+      console.log('wrong in init calendar component');
     }
-
     this.curr_month = new CalendarMaker(this.today.getMonth(), []);
 
     const d = new Date();
@@ -63,8 +64,18 @@ export class CalendarComponent implements OnInit, AfterViewInit {
     // this.get_this_month();
   }
 
-  nextMonth(){
-    this.calService.update_days_to_work();
+  ngOnChanges() {
+    if (this.displayMilestoneName !== null) {
+      this.calendarMilestone = this.msStore.calendarMilestone;
+    }
+  }
+
+  prev_month() {
+    this.calService.update_days_to_work(this.calendarMilestone, -1);
+  }
+
+  next_month() {
+    this.calService.update_days_to_work(this.calendarMilestone, +1);
   }
 
  ngAfterViewInit() {

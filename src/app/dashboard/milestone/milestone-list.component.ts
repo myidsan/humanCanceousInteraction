@@ -30,13 +30,14 @@ export class MilestoneListComponent implements OnInit {
     this.msStore.obs_milestones.subscribe(((val) => {
       this.msStoreList = val;
     }));
-    this.calColor.update_days_to_work(ms);
+    this.calColor.update_days_to_work(this.msStore.calendarMilestone, 0);
+    console.log(ms);
   }
 
   editmilestone(ms) {
     this.msStore.editdecide = true;
     this.msStore.tempms = ms;
-    this.router.navigate(['/newmilestone']);
+    this.router.navigate(['newmilestone']);
   }
 
   get_milestone() {

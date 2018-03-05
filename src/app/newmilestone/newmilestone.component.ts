@@ -23,7 +23,7 @@ export class NewmilestoneComponent implements OnInit {
   days: string[] = [];
   startDate = '';
   endDate = '';
-  dayseum = {0: 'sun', 1: 'mon', 2: 'tue', 3: 'wed', 4: 'thurs', 5: 'fri', 6: 'sat'};
+  dayseum = {0: 'Sunday', 1: 'Monday', 2: 'Tuesday', 3: 'Wednesday', 4: 'Thursday', 5: 'Friday', 6: 'Saturday'};
   days_to_work: number[] = [];
   days_to_do: number[] = [];
 
@@ -98,8 +98,8 @@ export class NewmilestoneComponent implements OnInit {
 
     // make sure start date to end date includes the days you picked to work.
 
-    let days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-    let daysi = ['sun', 'mon', 'tue', 'wed', 'thurs', 'fri','sat'];
+    let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Satday'];
+    let daysi = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Satday'];
     let startDayStr = String(this.startDate).split(" ", 1)[0];
     let endDayStr = String(this.endDate).split(" ", 1)[0];
 
@@ -185,12 +185,12 @@ export class NewmilestoneComponent implements OnInit {
     this.ms.endDate = ending.toString();
     this.ms.daysBool = this.daysBool;
     this.msStore.addmilestone(this.ms);
-    this.router.navigate(['/dashboard']);
+    this.router.navigate(['dashboard']);
   }
   cancel() {
     this.title = '';
     this.days = [];
-    this.router.navigate(['/dashboard']);
+    this.router.navigate(['dashboard']);
   }
 
  /* mockupData() {

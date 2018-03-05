@@ -11,7 +11,8 @@ export class CalendarcolorService {
   // returns the weekday as a number
   public today = new Date().getDay(); // 5 = saturday
   public today_date = new Date().getDate();
-  public today_month = new Date().getMonth();
+  public curr_month = new Date().getMonth();
+  public selected_month = this.curr_month;
 
 
 
@@ -31,8 +32,8 @@ export class CalendarcolorService {
 
 
 
-  update_days_to_work(ms) {
-    for (let i = 1; i < 29; i++) {
+  update_days_to_work(ms: Milestone, direction?: number) {
+    for (let i = 1; i < 31; i++) {
       if (ms.calender[i] !== null) {
         document.getElementById(`${i}`).classList.remove('active');
         document.getElementById(`${i}`).style['background-color'] = 'aliceblue';
@@ -40,23 +41,28 @@ export class CalendarcolorService {
       }
     }
 
+    this.selected_month += direction;
+    console.log(this.selected_month);
 
+    const j = 0;
+    // const empty_days = [j+4, j+3, j+3, j-1, j+1, j+4, j-1, j+2, j+5, j, j+3, j+5];
+    const empty_days = [4, 3, 3, 0, 5, 2, 0, 4, 1, 6, 3, 1];
+    // const month = Number(this.curr_month);
+    // console.log(month);
 
-    for (let i = 1; i <= (new Date(ms.endDate)).getDate(); i++) {
-      // check if it not 0 and if today is selected day of milestone
-      // currently hardcoded for Feb
+    let val = empty_days[this.selected_month];
+    console.log(val);
 
-      let monthList = [i+4, i+3, i+3, i-1, i+1, i+4, i-1, i+2, i+5, i, i+3, i+5];
+    for (let i = 0; i < ms.days.length; i++) {
+      let class_one = ms.days[i];
+      let classes_one = document.querySelectorAll(`.${class_one}`) as HTMLCollectionOf<HTMLElement>;
 
-
-      let val = monthList[month]
-
-      if (ms.calender[i] !== 0 && ((ms.daysBool[(i+3) % 7] ) === true)) {
-        document.getElementById(`${i}`).classList.add('active');
-        document.getElementById(`${i}`).style['background-color'] = 'white';
-
+      for (let j = 0; j < classes_one.length; j++) {
+        classes_one[j].classList.add('active');
+        classes_one[j].style.backgroundColor = 'white';
       }
     }
+
     for (let i = 1; i <= (new Date(ms.endDate)).getDate(); i++) {
       if (ms.calender[i] === 2) {
         // document.getElementById(`${i}`).style['background-color'] = 'limegreen';
@@ -68,6 +74,8 @@ export class CalendarcolorService {
     }
   }
 
-  constructor(private msStore: MilestoneStoreService) { }
+  constructor(private msStore: MilestoneStoreService) {
+    this.selected_month = this.curr_month;
+  }
 
 }

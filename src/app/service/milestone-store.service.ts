@@ -18,7 +18,9 @@ export class MilestoneStoreService {
   public progress_val_updated: Boolean = false;
 
   getDisplayName() {
-    this.calendarMilestoneName = this.calendarMilestone.name;
+    if (this.calendarMilestone !== null) {
+      this.calendarMilestoneName = this.calendarMilestone.name;
+    }
   }
 
   array_sorter(prev_arr) {
