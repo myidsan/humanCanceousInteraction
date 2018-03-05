@@ -49,7 +49,7 @@ export class CalendarcolorService {
       let monthList = [i+4, i+3, i+3, i-1, i+1, i+4, i-1, i+2, i+5, i, i+3, i+5];
 
 
-      let val = monthList[month]
+      
 
       if (ms.calender[i] !== 0 && ((ms.daysBool[(i+3) % 7] ) === true)) {
         document.getElementById(`${i}`).classList.add('active');

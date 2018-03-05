@@ -1,9 +1,9 @@
-<div>
-  <mat-list *ngFor="let ms of msStoreList">
-  <button mat-raised-button class="milestoneBtn" *ngIf="ms !== null" (click)="emitMilestone(ms)">
-    <div>
+<div >
+  <mat-list *ngFor="let ms of msStoreList" >
+  <button mat-raised-button class="milestoneBtn" *ngIf="ms !== null" id = {{ms.name}} (click)="emitMilestone(ms)">
+    <div >
       <div mat-card-avatar class="example-header-image"></div>
-      <div class="ms_name">
+      <div class="ms_name" >
         <h2>{{ms.name}}</h2>
         <button class="milestone-threedot" mat-icon-button [matMenuTriggerFor]="menu">
           <mat-icon>more_vert</mat-icon>
@@ -19,9 +19,12 @@
         </button>
       </mat-menu>
 
-      <p>start: {{ms.startDate | date}}</p>
-      <p>end: {{ms.endDate | date}}</p>
-      <p>date: {{ms.days}}</p>
+      <div id = "info">
+        D - 300
+        <br>
+        Days: {{ms.days}}
+      </div>
+
     </div>
     <div>
       <section class="example-section">

@@ -10,11 +10,21 @@ div .active{
   background: white;
   border-radius: 50%;
   color: black;
+  display:inline-block;
 }
 
 .Monday{
   text-align: center;
   background-color: pink;
+}
+
+#title{
+  text-align: center;
+  font-size: 20px;
+  background-color: #aliceblue;
+  padding-top: 10px;
+  color: white;
+  height:0px;
 }
 
 #calendar{

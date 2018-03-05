@@ -24,6 +24,7 @@ export class MilestoneListComponent implements OnInit {
     return this.msStore.deletemilestone(ms);
   }
 
+  public msList = [];
   emitMilestone(ms) {
     this.msStore.calendarMilestone = ms;
     this.msStore.getDisplayName();
@@ -31,6 +32,17 @@ export class MilestoneListComponent implements OnInit {
       this.msStoreList = val;
     }));
     this.calColor.update_days_to_work(ms);
+
+    this.msList.push(ms.name);
+
+    let length = Object.keys(this.msList).length;
+
+    for (let i = 0; i < length;i++){
+      if (this.msList[i] != (ms.name)){
+        document.getElementById(this.msList[i]).style['background-color'] = 'white';
+      }
+    }
+    document.getElementById(ms.name).style['background-color'] = 'pink';
   }
 
   editmilestone(ms) {

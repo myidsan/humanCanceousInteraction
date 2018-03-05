@@ -24,14 +24,14 @@ export class CalendarComponent implements OnInit, AfterViewInit {
   //   console.log(this.today.getMonth());
   // }
   //
-  // getName() {
-  //   this.displayMilestoneName = this.msStore.calendarMilestoneName;
-  // }
+  getName() {
+    this.displayMilestoneName = this.msStore.calendarMilestoneName;
+  }
   //
-  // ngAfterContentChecked() {
-  //   this.getName();
-  // }
-  //
+  ngAfterContentChecked() {
+    this.getName();
+  }
+
   constructor(public msStore: MilestoneStoreService,
               public calService: CalendarcolorService) { }
   //
@@ -63,9 +63,7 @@ export class CalendarComponent implements OnInit, AfterViewInit {
     // this.get_this_month();
   }
 
-  nextMonth(){
-    this.calService.update_days_to_work();
-  }
+
 
  ngAfterViewInit() {
   $(function() {
@@ -97,11 +95,13 @@ export class CalendarComponent implements OnInit, AfterViewInit {
       }
       var y = o[n - 1];
       a
-        .css("background-color", "#ff9999")
+        .css({"background-color": "pink",
+              "padding-bottom": 0 + "px"
+      })
         .find("h1")
         .text(i[n - 1] + " " + t);
-      f.find("div").css("color", "#ff9999");
-      l.find(".today").css("background-color", "#ff9999");
+      f.find("div").css("color", "pink");
+      l.find(".today").css("background-color", "pink");
       d();
     }
 
