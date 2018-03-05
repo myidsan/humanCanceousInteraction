@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, OnInit} from '@angular/core';
 import { MilestoneStoreService } from '../../service/milestone-store.service';
 import { Milestone } from '../../model/milestone';
+import * as firebase from 'firebase';
 import { CalendarcolorService } from '../../service/calendarcolor.service';
 
 

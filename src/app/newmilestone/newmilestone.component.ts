@@ -199,8 +199,8 @@ export class NewmilestoneComponent implements OnInit {
   }*/
 
   prepopulateFields(ms) {
-    const starting = new Date(this.startDate);
-    const ending = new Date(this.endDate);
+    let starting = new Date(this.startDate);
+    let ending = new Date(this.endDate);
 
     this.title = ms.name;
     this.startDate = this.startDate;
@@ -217,6 +217,7 @@ export class NewmilestoneComponent implements OnInit {
     this.ms.modified = ms.modified;
     this.startDate = ms.startDate;
     this.endDate = ms.endDate;
+    document.getElementById('header').innerHTML = "Edit Milestone";
   }
 
   ngOnInit() {
