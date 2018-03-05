@@ -12,7 +12,7 @@ import * as $ from 'jquery';
   styleUrls: ['./calendar.component.css']
 })
 
-export class CalendarComponent implements OnInit, AfterViewInit, OnChanges {
+export class CalendarComponent implements OnInit, AfterViewInit, OnChanges, AfterContentChecked {
   public milestonelist = this.msStore.milestones;
   public calendarMilestone;
   public displayMilestoneName = '';
@@ -24,14 +24,14 @@ export class CalendarComponent implements OnInit, AfterViewInit, OnChanges {
   //   console.log(this.today.getMonth());
   // }
   //
-  // getName() {
-  //   this.displayMilestoneName = this.msStore.calendarMilestoneName;
-  // }
+  getName() {
+    this.displayMilestoneName = this.msStore.calendarMilestoneName;
+  }
   //
-  // ngAfterContentChecked() {
-  //   this.getName();
-  // }
-  //
+  ngAfterContentChecked() {
+    this.getName();
+  }
+
   constructor(public msStore: MilestoneStoreService,
               public calService: CalendarcolorService) { }
   //
@@ -108,11 +108,13 @@ export class CalendarComponent implements OnInit, AfterViewInit, OnChanges {
       }
       var y = o[n - 1];
       a
-        .css("background-color", "#ff9999")
+        .css({"background-color": "pink",
+              "padding-bottom": 0 + "px"
+      })
         .find("h1")
         .text(i[n - 1] + " " + t);
-      f.find("div").css("color", "#ff9999");
-      l.find(".today").css("background-color", "#ff9999");
+      f.find("div").css("color", "pink");
+      l.find(".today").css("background-color", "pink");
       d();
     }
 
