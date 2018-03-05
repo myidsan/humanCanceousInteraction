@@ -4,7 +4,6 @@ import { EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import {Observer} from 'rxjs/Observer';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
-// import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class MilestoneStoreService {
@@ -16,24 +15,21 @@ export class MilestoneStoreService {
   calendarMilestoneName = '';
   tempms: Milestone = null;
   editdecide = false;
+  public progress_val_updated: Boolean = false;
 
   getDisplayName() {
     this.calendarMilestoneName = this.calendarMilestone.name;
-    // return this.calendarMilestoneName;
   }
 
   array_sorter(prev_arr) {
     // let new_arr = this.milestones.filter(function(n) { return (n !== (null || undefined)); });
     let new_arr = [];
     new_arr = prev_arr.filter(function(e) { return e; });
-    console.log(new_arr);
-    console.log('arr_sorter: ' + new_arr.length);
     for (let i = 0; i < new_arr.length; i++) {
       new_arr[i].id = i;
     }
     this.milestones = new_arr;
     this.obs_milestones.next(new_arr);
-    console.log(this.milestones);
   }
 
   addmilestone(ms) {
@@ -57,6 +53,14 @@ export class MilestoneStoreService {
       console.log('broke');
     }
     this.array_sorter(this.milestones);
+  }
+
+  update_progress_value(ms) {
+    if (this.progress_val_updated === false) {
+      // tentatively increment by 10
+      ms.progressValue = ms.progressValue + 10;
+      this.progress_val_updated = true;
+    }
   }
 
   constructor() { }

@@ -1,7 +1,12 @@
-<div id="pwInput" class="form-container">
-  <!--<img src="../../assets/images/lock.svg" id="lock">-->
-  <span class="error" *ngIf="error">{{ error }}</span>
-  <!--<input type="text" id="pwInput" [(ngModel)]="password" placeholder="enter password">-->
-  <h1>New Year Resolution</h1>
-  <button mat-button id="loginBtn" (click)="googleLogin()">Google Login</button>
-</div>
+<section class="whole">
+  <div id="pwInput" class="form-container">
+    <!--<img src="../../assets/images/lock.svg" id="lock">-->
+    <span class="error" *ngIf="error">{{ error }}</span>
+    <!--<input type="text" id="pwInput" [(ngModel)]="password" placeholder="enter password">-->
+    <h1 class="title">New Year Resolution</h1>
+    <button mat-raised-button id="loginBtn" (click)="googleLogin()">
+      <img src="assets\g.png" alt="Google Icon">
+      &ensp;Google Login
+    </button>
+  </div>
+</section>

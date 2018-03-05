@@ -3,6 +3,7 @@ import { Milestone } from '../../model/milestone';
 import { MilestoneStoreService } from '../../service/milestone-store.service';
 import { CalendarComponent } from '../calendar/calendar.component';
 import { Router } from '@angular/router';
+import { CalendarcolorService } from '../../service/calendarcolor.service';
 
 @Component({
   selector: 'app-milestone-list',
@@ -15,7 +16,8 @@ export class MilestoneListComponent implements OnInit {
   public msStoreList = this.msStore.milestones;
 
   constructor(public msStore: MilestoneStoreService,
-              public router: Router) { }
+              public router: Router,
+              public calColor: CalendarcolorService) { }
 
 
   deletemilestone(ms) {
@@ -27,7 +29,8 @@ export class MilestoneListComponent implements OnInit {
     this.msStore.getDisplayName();
     this.msStore.obs_milestones.subscribe(((val) => {
       this.msStoreList = val;
-    }))
+    }));
+    this.calColor.update_days_to_work(ms);
   }
 
   editmilestone(ms) {

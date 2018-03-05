@@ -2,13 +2,24 @@
   /* display: flex; */
   /* align-items: center; */
   /* justify-content: center; */
-  background-color: darkgrey;
+  background-color: aliceblue;
+  font-size: 30px;
   /* height: 3rem; */
 }
 
 .mat-toolbar {
   background-color: darkgrey;
 }
+
+.mat-button {
+  float: right;
+  margin-left: 73%;
+  background-color: white;
+  /* border: solid;
+  border-width: 0.1rem;
+  border-color: black; */
+}
+
 
 #container {
   display: flex;

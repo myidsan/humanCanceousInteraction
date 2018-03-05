@@ -4,30 +4,56 @@
   display:block;
 }
 
-/*.form-container {*/
-  /*background: white;*/
-/*//padding: 3.5em;*/
-  /*width: 500px;*/
-  /*margin: auto;*/
-  /*margin-top: 15em;*/
-/*//margin-left: -250px;*/
-/*}*/
+/* .form-container {
+  background: white;
+  padding: 3.5em;
+  width: 500px;
+  margin: auto;
+  margin-top: 15em;
+  margin-left: -250px;
+} */
+
+.whole {
+  background: #ffcccc;
+  width: auto;
+  height: 500px;
+  margin: 0;
+  padding: 0;
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+}
+
+img {
+  width: 32px;
+  height: 32px;
+}
+
+.title {
+  font-size: 2.8em;
+  margin-bottom: 0;
+}
 
 button {
   padding: 1.2em;
-  width: 100%;
+  width: 50%;
+  height: 80px;
   cursor: pointer;
-  margin-bottom: 15px;
-  font-size: 1.3em;
+  margin-top: 4.5rem;
+  margin-bottom: 3rem;
+  font-size: 1.2em;
+  padding-top: 24px;
 }
 
 #pwInput {
   padding: 1.2em;
-  width: 100%;
-  cursor: pointer;
-  margin-bottom: 15px;
+  width: 600px;
+  border-radius: 2rem;
+  /* margin-bottom: 15px; */
+  margin: 0 auto;
   font-size: 1.3em;
-  border: 2px solid #000;
+  border: 10px solid #ff9999;
+  text-align: center;
+  background-color: white;
 }
 
 @media (max-width: 600px) {

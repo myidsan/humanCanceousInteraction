@@ -1,4 +1,103 @@
+.mat-typography {
+  background-color: aliceblue;
+}
+
 #header {
   background-color: darkgrey;
 }
+#middle {
+  width: 100%;
+}
 
+#leftContainer {
+  width: 42%;
+  height: 480px;
+  background-color: #ccccff;
+  /* border-radius: 1rem; */
+  margin: 4%;
+  margin-bottom: 2rem;
+  float: left;
+}
+
+#rightContainer {
+  width: 42%;
+  height: 480px;
+  background-color: #ccccff;
+  /* border-radius: 1rem; */
+  margin-top: 4%;
+  margin-bottom: 2rem;
+  margin-right: 4%;
+  float: left;
+
+}
+
+.name {
+  height: 95px;
+  background-color: white;
+  border-radius: 1rem;
+  margin: 2rem;
+  padding-top: 1rem;
+  padding-left: 1rem;
+}
+
+.name h1 {
+  margin-bottom: 0px;
+}
+
+.duration {
+  height: 220px;
+  background-color: white;
+  border-radius: 1rem;
+  margin: 2rem;
+  padding-top: 0.2rem;
+  padding-bottom: 1rem;
+  padding-left: 1rem;
+}
+
+.duration h1 {
+  margin-bottom: 0px;
+  margin-top: 0.99rem;
+}
+
+.days {
+  /* width: auto; */
+  background-color: white;
+  border-radius: 1rem;
+  margin: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 0.2rem;
+  padding-left: 1rem;
+}
+
+.days h1 {
+  margin-bottom: 0.5rem;
+}
+
+.days_list {
+  width: 10px;
+  height: 180px;
+}
+
+.alert {
+  height: 79px;
+  background-color: white;
+  border-radius: 1rem;
+  margin: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 1rem;
+}
+
+.radioBtn {
+  margin-right: 2rem;
+}
+.bottom {
+  clear: left;
+  padding-bottom: 2rem;
+  padding-right: 8rem;
+  text-align: right;
+}
+
+.mat-raised-button {
+  margin-left: 2rem;
+}

@@ -9,6 +9,10 @@
   margin-top: 1rem;
 }
 
+.ms_name {
+  margin-top: 1rem;
+}
+
 .example-section {
   display: flex;
   align-content: center;
@@ -18,4 +22,5 @@
 
 .milestone-threedot {
   float: right;
+  top: -50px;
 }

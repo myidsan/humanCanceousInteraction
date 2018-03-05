@@ -33,7 +33,7 @@ import { MilestoneStoreService } from './service/milestone-store.service';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './core/auth.service';
 import { AuthGuard } from './core/auth.guard';
-import { CalendarcolorService} from './service/calendarcolor.service';
+import { CalendarcolorService } from './service/calendarcolor.service';
 
 @NgModule({
   declarations: [

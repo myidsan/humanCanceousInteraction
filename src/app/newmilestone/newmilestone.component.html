@@ -1,47 +1,75 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typescript/2.1.1/typescript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zone.js/0.8.5/zone.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.38/system.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+<script src="systemjs.config.js"></script>
+<script>
+    System
+      .import('main.ts')
+      .catch(console.error.bind(console));
+  </script>
+  <link href="https://unpkg.com/@angular/material/prebuilt-themes/indigo-pink.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <section class="mat-typography">
-  <mat-toolbar id="header">Milestone Add Page</mat-toolbar>
-  <div id="container">
-  <div id="leftContainer">
-    <mat-form-field>
-      <input matInput placeholder="name of the milestone" [(ngModel)]="title" required>
-    </mat-form-field>
-    <p>{{title}}</p>
-    <mat-form-field>
-      <input matInput [matDatepicker]="spicker" placeholder="Start Date" [(ngModel)]="startDate" required>
-      <mat-datepicker-toggle matSuffix [for]="spicker"></mat-datepicker-toggle>
-      <mat-datepicker #spicker></mat-datepicker>
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput [matDatepicker]="epicker" placeholder="End Date" [(ngModel)]="endDate" required>
-      <mat-datepicker-toggle matSuffix [for]="epicker"></mat-datepicker-toggle>
-      <mat-datepicker #epicker></mat-datepicker>
-    </mat-form-field>
+  <mat-toolbar id="header">Create a New Milestone</mat-toolbar>
+  <div id="middle">
+    <div id="leftContainer">
+      <div class="name">
+        <h1>Name</h1>
+        <mat-form-field>
+          <input matInput placeholder="Name of the milestone" [(ngModel)]="title" required>
+        </mat-form-field>
+        <!-- <p>{{title}}</p> -->
+      </div>
 
-  <div>
-    <h1>Days to Work on Milestone</h1>
-    <form name="weekdays">
-      <mat-checkbox value="Mon" name="monday" [(ngModel)]="mon">Monday</mat-checkbox>
-      <mat-checkbox value="Tue" name="tuesday" [(ngModel)]="tue">Tuesday</mat-checkbox>
-      <mat-checkbox value="Wed" name="wednesday" [(ngModel)]="wed">Wednesday</mat-checkbox>
-      <mat-checkbox value="Thur" name="thursday" [(ngModel)]="thurs">Thursday</mat-checkbox>
-      <mat-checkbox value="Fri" name="friday" [(ngModel)]="fri">Friday</mat-checkbox>
-      <mat-checkbox value="Sat" name="saturday" [(ngModel)]="sat">Saturday</mat-checkbox>
-      <mat-checkbox value="sun" name="sunday" [(ngModel)]="sun">Sunday</mat-checkbox>
-    </form>
-  </div>
+      <div class="duration">
+        <h1>Start Date</h1>
+        <mat-form-field>
+          <input matInput [matDatepicker]="spicker" placeholder="Start Date" [(ngModel)]="startDate" required>
+          <mat-datepicker-toggle matSuffix [for]="spicker"></mat-datepicker-toggle>
+          <mat-datepicker #spicker></mat-datepicker>
+        </mat-form-field>
+        <h1>End Date</h1>
+        <mat-form-field>
+          <input matInput [matDatepicker]="epicker" placeholder="End Date" [(ngModel)]="endDate" required>
+          <mat-datepicker-toggle matSuffix [for]="epicker"></mat-datepicker-toggle>
+          <mat-datepicker #epicker></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div id="rightContainer">
+      <div class="days">
+        <h1>Days to Work on Milestone</h1>
+        <form class="days_list" name="weekdays">
+          <mat-checkbox value="Mon" name="monday" [(ngModel)]="mon">Monday</mat-checkbox>
+          <mat-checkbox value="Tue" name="tuesday" [(ngModel)]="tue">Tuesday</mat-checkbox>
+          <mat-checkbox value="Wed" name="wednesday" [(ngModel)]="wed">Wednesday</mat-checkbox>
+          <mat-checkbox value="Thur" name="thursday" [(ngModel)]="thurs">Thursday</mat-checkbox>
+          <mat-checkbox value="Fri" name="friday" [(ngModel)]="fri">Friday</mat-checkbox>
+          <mat-checkbox value="Sat" name="saturday" [(ngModel)]="sat">Saturday</mat-checkbox>
+          <mat-checkbox value="sun" name="sunday" [(ngModel)]="sun">Sunday</mat-checkbox>
+        </form>
+      </div>
+
+      <div class="alert">
+        <h1>Do you want to be alerted via email?</h1>
+        <mat-radio-button class="radioBtn" [checked]="false">Yes</mat-radio-button>
+        <mat-radio-button class="radioBtn" [checked]="false">No</mat-radio-button>
+      </div>
+    </div>
+
+    <!-- <mat-divider></mat-divider> -->
+    <div class="bottom">
+      <button mat-raised-button (click)="saveMilestone()">
+        save
+      </button>
+      <button mat-raised-button (click)="cancel()">
+        cancel
+      </button>
+    </div>
   </div>
 
-  </div>
-  <mat-divider></mat-divider>
-  <div>
-    <h3>Do you want to be alerted via email?</h3>
-      <mat-radio-button [checked]="false">Yes</mat-radio-button>
-      <mat-radio-button [checked]="false">No</mat-radio-button>
-  </div>
-  <button mat-button (click)="saveMilestone()">
-    save
-  </button>
-  <button mat-button (click)="cancel()">
-    cancel
-  </button>
+
 </section>

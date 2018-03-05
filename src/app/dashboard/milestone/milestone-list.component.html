@@ -3,11 +3,13 @@
   <button mat-raised-button class="milestoneBtn" *ngIf="ms !== null" (click)="emitMilestone(ms)">
     <div>
       <div mat-card-avatar class="example-header-image"></div>
-      
-      <span>Milestone title: {{ms.name}}</span>
-      <button class="milestone-threedot" mat-icon-button [matMenuTriggerFor]="menu">
-        <mat-icon>more_vert</mat-icon>
-      </button>
+      <div class="ms_name">
+        <h2>{{ms.name}}</h2>
+        <button class="milestone-threedot" mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+      </div>
+
       <mat-menu #menu="matMenu">
         <button mat-menu-item>
           <span (click)="deletemilestone(ms)">Delete</span>
@@ -16,7 +18,7 @@
           <span (click)="editmilestone(ms)">Edit</span>
         </button>
       </mat-menu>
-      
+
       <p>start: {{ms.startDate | date}}</p>
       <p>end: {{ms.endDate | date}}</p>
       <p>date: {{ms.days}}</p>
