@@ -62,7 +62,6 @@ export class NewmilestoneComponent implements OnInit {
   }
 
   check_days_to_work() {
-    console.log(typeof(this.today.getDate()));
     for (let i = this.today.getDate(); i < 31; i++) {
       // document.getElementById(`${i}`).classList.add('active'); // this needs to added to the service
       // need to check for specific weekdays

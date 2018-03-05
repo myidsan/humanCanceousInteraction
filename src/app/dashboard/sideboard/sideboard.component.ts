@@ -15,6 +15,9 @@ export class SideboardComponent implements OnInit, AfterViewInit {
   // returns the weekday as a number
   public today = new Date().getDay(); // 5 = saturday
   public today_date = new Date().getDate();
+  public today_month = new Date().getMonth();
+
+
 
 
   constructor(public msStore: MilestoneStoreService,
@@ -24,7 +27,22 @@ export class SideboardComponent implements OnInit, AfterViewInit {
   doChecker() {
     for (let i = 0; i < this.msStoreList.length; i++) {
       if (this.msStoreList[i].daysBool[this.today]) {
-        this.msStoreList[i].shouldDo = true;
+
+        let startDate = new Date(this.msStoreList[i].startDate).getDate();
+        let endDate = new Date(this.msStoreList[i].endDate).getDate();
+
+        let startMonth = new Date(this.msStoreList[i].startDate).getMonth();
+        let endMonth = new Date(this.msStoreList[i].endDate).getMonth();
+
+        if(Number(this.today_month) < Number(startMonth)){
+          continue;
+        }
+        else if ((Number(this.today_month) == Number(startMonth)) && (Number(this.today_date) < Number(startDate))){
+          continue;
+        }
+        else{
+          this.msStoreList[i].shouldDo = true;
+        }
       }
     }
   }

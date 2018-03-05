@@ -11,6 +11,9 @@ export class CalendarcolorService {
   // returns the weekday as a number
   public today = new Date().getDay(); // 5 = saturday
   public today_date = new Date().getDate();
+  public today_month = new Date().getMonth();
+
+
 
   complete(ms) {
     const d = new Date();
@@ -20,7 +23,7 @@ export class CalendarcolorService {
   }
 
   incomplete() {
-   const d = new Date();
+    const d = new Date();
     document.getElementById(d.getDate().toString()).classList.add('active');
     document.getElementById(d.getDate().toString()).style['background-color'] = 'tomato';
     document.getElementById(d.getDate().toString()).style['color'] = 'white';
@@ -30,16 +33,25 @@ export class CalendarcolorService {
     for (let i = 1; i < 29; i++) {
       if (ms.calender[i] !== null) {
         document.getElementById(`${i}`).classList.remove('active');
-        document.getElementById(`${i}`).style['background-color'] = 'transparent';
-        document.getElementById(`${i}`).style['color'] = '#777';
+        document.getElementById(`${i}`).style['background-color'] = 'aliceblue';
+        document.getElementById(`${i}`).style['color'] = 'black';
       }
     }
+
+
+
     for (let i = 1; i <= (new Date(ms.endDate)).getDate(); i++) {
       // check if it not 0 and if today is selected day of milestone
       // currently hardcoded for Feb
-      if (ms.calender[i] !== 0 && ((ms.daysBool[(i + 3) % 7] ) === true)) {
+
+      let monthList = [i+4, i+3, i+3, i-1, i+1, i+4, i-1, i+2, i+5, i, i+3, i+5];
+      let month = Number(this.today_month) -1 ;
+      let val = monthList[month]
+
+      if (ms.calender[i] !== 0 && ((ms.daysBool[val % 7] ) === true)) {
         document.getElementById(`${i}`).classList.add('active');
         document.getElementById(`${i}`).style['background-color'] = 'white';
+
       }
     }
     for (let i = 1; i <= (new Date(ms.endDate)).getDate(); i++) {

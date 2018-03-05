@@ -1,109 +1,22 @@
-/*#calendar {*/
-  /*background-color: beige;*/
-  /*height: 100%;*/
-  /*margin-right: 1rem;*/
-
-/*}*/
-
-/*.mat-card {*/
-  /*width: 80%;*/
-  /*margin-left: 0.5rem;*/
-/*}*/
-
-/*.milestoneInfo {*/
-  /*padding-top: 0.5rem;*/
-  /*padding-left: 0.5rem;*/
-/*}*/
-
-/** {box-sizing: border-box;}*/
-/*ul {list-style-type: none;}*/
-/*body {font-family: Verdana, sans-serif;}*/
-
-/*.month {*/
-    /*padding: 70px 25px;*/
-    /*width: 100%;*/
-    /*background: #777;!*#1abc9c;*!*/
-    /*text-align: center;*/
-/*}*/
-
-/*.month ul {*/
-    /*margin: 0;*/
-    /*padding: 0;*/
-/*}*/
-
-/*.month ul li {*/
-    /*color: white;*/
-    /*font-size: 20px;*/
-    /*text-transform: uppercase;*/
-    /*letter-spacing: 3px;*/
-/*}*/
-
-/*.month .prev {*/
-    /*float: left;*/
-    /*padding-top: 10px;*/
-/*}*/
-
-/*.month .next {*/
-    /*float: right;*/
-    /*padding-top: 10px;*/
-/*}*/
-
-/*.year {*/
-  /*font: 18px;*/
-/*}*/
-/*.weekdays {*/
-    /*margin: 0;*/
-    /*padding: 10px 0;*/
-    /*background-color: #ddd;*/
-/*}*/
-
-/*.weekdays li {*/
-    /*display: inline-block;*/
-    /*width: 13.6%;*/
-    /*color: #666;*/
-    /*text-align: center;*/
-/*}*/
-
-/*.days {*/
-    /*padding: 10px 0;*/
-    /*background: #eee;*/
-    /*margin: 0;*/
-/*}*/
-
-/*.days li {*/
-    /*list-style-type: none;*/
-    /*display: inline-block;*/
-    /*width: 13.6%;*/
-    /*text-align: center;*/
-    /*margin-bottom: 5px;*/
-    /*font-size:12px;*/
-    /*color: #777;*/
-/*}*/
-
-/*.days li .active {*/
-    /*padding: 5px;*/
-    /*background: white;*/
-    /*border-radius: 50%;*/
-    /*color: black; */
-/*}*/
-
-/*!* Add media queries for smaller screens *!*/
-/*@media screen and (max-width:720px) {*/
-    /*.weekdays li, .days li {width: 13.1%;}*/
-/*}*/
-
-/*@media screen and (max-width: 420px) {*/
-    /*.weekdays li, .days li {width: 12.5%;}*/
-    /*.days li .active {padding: 2px;}*/
-/*}*/
-
-/*@media screen and (max-width: 290px) {*/
-    /*.weekdays li, .days li {width: 12.2%;}*/
-/*}*/
-
 body{
-  background-color: #F5F1E9;
+  background-color: aliceblue;
+  width:84.30%;
+  padding: 0px;
+  border-radius: 15px;
 }
+
+div .active{
+  padding: 5px;
+  background: white;
+  border-radius: 50%;
+  color: black;
+}
+
+.Monday{
+  text-align: center;
+  background-color: pink;
+}
+
 #calendar{
   /*margin-left: auto;*/
   /*margin-right: auto;*/
@@ -115,14 +28,27 @@ body{
   /*display:inline-block;*/
   display: flex;
   vertical-align:top;
+
 }
-#calendar_content, #calendar_weekdays, #calendar_header{
+#calendar_weekdays, #calendar_header{
   position: relative;
+  display: flex;
   width: 320px;
   overflow: hidden;
-  float: left;
-  z-index: 10;
+  /*float: left;*/
+
 }
+
+#calendar_content {
+  /*position: relative;*/
+  /*width: 320px;*/
+  /*overflow: hidden;*/
+  /*float: left;*/
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+}
+
 #calendar_weekdays div, #calendar_content div{
   width:40px;
   height: 40px;
@@ -136,9 +62,7 @@ body{
   -moz-border-radius: 0px 0px 12px 12px;
   border-radius: 0px 0px 12px 12px;
 }
-#calendar_content div{
-  float: left;
-}
+
 #calendar_content div:hover{
   background-color: #F8F8F8;
 }
@@ -166,12 +90,25 @@ body{
 #calendar_header h1{
   font-size: 1.5em;
   color: #FFFFFF;
-  float:left;
+  /*float:left;*/
   width:70%;
 }
+
 i[class^=icon-chevron]{
+  text-align: center;
   color: #FFFFFF;
   float: left;
   width:15%;
   border-radius: 50%;
+  z-index: 10;
+}
+
+#icons{
+  text-align: center;
+  font-style: normal;
+  color: #FFFFFF;
+  float: left;
+  width:15%;
+  border-radius: 50%;
+  z-index: 10;
 }

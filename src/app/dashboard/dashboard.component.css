@@ -2,7 +2,8 @@
   /* display: flex; */
   /* align-items: center; */
   /* justify-content: center; */
-  background-color: darkgrey;
+  background-color: aliceblue;
+  font-size: 30px;
   /* height: 3rem; */
 }
 
@@ -12,12 +13,13 @@
 
 .mat-button {
   float: right;
-  margin-left: 80%;
+  margin-left: 73%;
   background-color: white;
   /* border: solid;
   border-width: 0.1rem;
   border-color: black; */
 }
+
 
 #container {
   display: flex;
@@ -28,11 +30,11 @@
 }
 
 #msContainer {
-  width: 30%;
+  width: 40%;
 }
 
 #calContainter {
-  width: 50%;
+  width: 40%;
 }
 
 #sideContainer {

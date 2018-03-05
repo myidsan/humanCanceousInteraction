@@ -64,47 +64,50 @@ export class CalendarComponent implements OnInit, AfterViewInit {
  ngAfterViewInit() {
   $(function() {
     function c() {
-      p();
-      var e = h();
-      var r = 0;
+      calendarHeader();
+      var dayWeekday = h();
+      var counter = 0;
       var u = false;
       l.empty();
       while (!u) {
-        if (s[r] == e[0].weekday) {
+        if (s[counter] == dayWeekday[0].weekday) {
           u = true;
         } else {
-          l.append('<div class="blank"></div>');
-          r++;
+          l.append('<div class= "blank"></div>');
+          counter++;
         }
       }
-      for (var c = 0; c < 42 - r; c++) {
-        if (c >= e.length) {
+      for (var c = 0; c < 42 - counter; c++) {
+        if (c >= dayWeekday.length) {
           l.append('<div class="blank"></div>');
         } else {
-          var v = e[c].day;
+          var v = dayWeekday[c].day;
+          var b = dayWeekday[c].weekday;
           var m = g(new Date(t, n - 1, v)) ? '<div class="today">' : "<div>";
-          l.append(m + "" + v + "</div>");
+
+          //adding divs of each day
+          l.append("<div id = '" + v + "'"+ "class = " + b + ">" + v + "</div>");
         }
       }
       var y = o[n - 1];
       a
-        .css("background-color", y)
+        .css("background-color", "#ff9999")
         .find("h1")
         .text(i[n - 1] + " " + t);
-      f.find("div").css("color", y);
-      l.find(".today").css("background-color", y);
+      f.find("div").css("color", "#ff9999");
+      l.find(".today").css("background-color", "#ff9999");
       d();
     }
 
     function h() {
-      var e = [];
-      for (var r = 1; r < v(t, n) + 1; r++) {
-        e.push({day: r, weekday: s[m(t, n, r)]});
+      var dayWeekday = [];
+      for (var r = 1; r < daysInMonth(t, n) + 1; r++) {
+        dayWeekday.push({day: r, weekday: s[daysOfWeek(t, n, r)]});
       }
-      return e;
+      return dayWeekday;
     }
 
-    function p() {
+    function calendarHeader() {
       f.empty();
       for (var e = 0; e < 7; e++) {
         f.append("<div>" + s[e].substring(0, 3) + "</div>");
@@ -119,9 +122,11 @@ export class CalendarComponent implements OnInit, AfterViewInit {
         .css("width", e + "px")
         .find("div")
         .css({
-          width: e / 7 + "px",
-          height: e / 7 + "px",
-          "line-height": e / 7 + "px"
+          display: 'flex',
+          width: (e / 7) - 30 + "px",
+          "padding-left": 30 + "px",
+          height: (e / 7)  + "px",
+          "line-height": (e / 7)  + "px"
         });
       n
         .find("#calendar_header")
@@ -130,11 +135,12 @@ export class CalendarComponent implements OnInit, AfterViewInit {
         .css("line-height", e * (1 / 7) + "px");
     }
 
-    function v(e, t) {
+    function daysInMonth(e, t) {
       return new Date(e, t, 0).getDate();
     }
 
-    function m(e, t, n) {
+    //0-6 per week
+    function daysOfWeek(e, t, n){
       return new Date(e, t - 1, n).getDay();
     }
 
@@ -218,6 +224,6 @@ export class CalendarComponent implements OnInit, AfterViewInit {
         r("next");
       }
     });
-    }
-  };
+    });
+  }
 }
