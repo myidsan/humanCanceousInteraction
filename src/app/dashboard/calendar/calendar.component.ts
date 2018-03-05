@@ -3,6 +3,7 @@ import { Milestone } from '../../model/milestone';
 import { MilestoneStoreService } from '../../service/milestone-store.service';
 import { Observable } from 'rxjs/Observable';
 import {Calendar, CalendarMaker} from '../../model/calendar';
+import { CalendarcolorService } from '../../service/calendarcolor.service'
 import * as $ from 'jquery';
 
 @Component({
@@ -31,7 +32,8 @@ export class CalendarComponent implements OnInit, AfterViewInit {
   //   this.getName();
   // }
   //
-  constructor(public msStore: MilestoneStoreService) { }
+  constructor(public msStore: MilestoneStoreService,
+              public calService: CalendarcolorService) { }
   //
   // getColor(d) {
   //   document.getElementById(d.getDate().toString()).classList.add('active');
@@ -59,6 +61,10 @@ export class CalendarComponent implements OnInit, AfterViewInit {
     const d = new Date();
     // this.getColor(d);
     // this.get_this_month();
+  }
+
+  nextMonth(){
+    this.calService.update_days_to_work();
   }
 
  ngAfterViewInit() {

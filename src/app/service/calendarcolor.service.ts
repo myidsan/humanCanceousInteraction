@@ -29,6 +29,8 @@ export class CalendarcolorService {
     document.getElementById(d.getDate().toString()).style['color'] = 'white';
   }
 
+
+
   update_days_to_work(ms) {
     for (let i = 1; i < 29; i++) {
       if (ms.calender[i] !== null) {
@@ -45,10 +47,11 @@ export class CalendarcolorService {
       // currently hardcoded for Feb
 
       let monthList = [i+4, i+3, i+3, i-1, i+1, i+4, i-1, i+2, i+5, i, i+3, i+5];
-      let month = Number(this.today_month) - 1 ;
+
+
       let val = monthList[month]
 
-      if (ms.calender[i] !== 0 && ((ms.daysBool[val % 7] ) === true)) {
+      if (ms.calender[i] !== 0 && ((ms.daysBool[(i+3) % 7] ) === true)) {
         document.getElementById(`${i}`).classList.add('active');
         document.getElementById(`${i}`).style['background-color'] = 'white';
 
