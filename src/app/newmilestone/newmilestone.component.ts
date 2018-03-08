@@ -108,6 +108,7 @@ export class NewmilestoneComponent implements OnInit {
 
     if (ending.getDate() - starting.getDate() < 6){
       if (days.indexOf(startDayStr) < days.indexOf(endDayStr)){
+        // console.log("case3");
         let term = [];
         for (let i = days.indexOf(startDayStr); i <= days.indexOf(endDayStr); i++){
           term.push(i);
@@ -122,6 +123,7 @@ export class NewmilestoneComponent implements OnInit {
         }
       }
       else if (days.indexOf(startDayStr) > days.indexOf(endDayStr)){
+        // console.log("case2");
         let term = [];
         for (let i = days.indexOf(endDayStr) +1; i < days.indexOf(startDayStr); i++){
           term.push(i);
@@ -129,19 +131,8 @@ export class NewmilestoneComponent implements OnInit {
         for (let i of this.days){
           let check = daysi.indexOf(i);
           if (term.indexOf(check) !== -1) {
-            alert('Check the days you want to work.');
+            alert('Selected days are out of milestone duration range.');
             this.days = []
-            return 0;
-          }
-        }
-      }
-      else {
-        console.log("case3");
-        for (let i of this.days) {
-          let check = daysi.indexOf(i);
-          if (check !== days.indexOf(startDayStr)) {
-            alert('Check the days you want to work.');
-            this.days = [];
             return 0;
           }
         }

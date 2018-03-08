@@ -45,6 +45,7 @@ div .active{
   display: flex;
   width: 320px;
   overflow: hidden;
+  
   /*float: left;*/
 
 }

@@ -1,3 +1,4 @@
+
 import { Injectable } from '@angular/core';
 
 import { CalendarComponent } from '../dashboard/calendar/calendar.component';
@@ -49,7 +50,6 @@ export class CalendarcolorService {
     const empty_days = [4, 3, 3, 0, 5, 2, 0, 4, 1, 6, 3, 1];
     // const month = Number(this.curr_month);
     // console.log(month);
-
     let val = empty_days[this.selected_month];
     console.log(val);
 

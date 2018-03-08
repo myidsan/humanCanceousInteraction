@@ -32,7 +32,8 @@ h1{
 .milestone {
   width: 5rem;
   height: 4rem;
-  background-color: #ccccff;
+  background-color: SteelBlue  ;
+  color: white;
   text-align: center;
   padding-top:10px;
   border-radius: 5%;

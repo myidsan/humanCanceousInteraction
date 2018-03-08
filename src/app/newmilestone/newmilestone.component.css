@@ -12,7 +12,7 @@
 #leftContainer {
   width: 42%;
   height: 480px;
-  background-color: #ccccff;
+  background-color: #cce9ff;
   /* border-radius: 1rem; */
   margin: 4%;
   margin-bottom: 2rem;
@@ -22,7 +22,7 @@
 #rightContainer {
   width: 42%;
   height: 480px;
-  background-color: #ccccff;
+  background-color: #cce9ff;
   /* border-radius: 1rem; */
   margin-top: 4%;
   margin-bottom: 2rem;
@@ -60,7 +60,7 @@
 }
 
 .days {
-  /* width: auto; */
+
   background-color: white;
   border-radius: 1rem;
   margin: 2rem;

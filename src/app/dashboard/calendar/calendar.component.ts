@@ -19,11 +19,7 @@ export class CalendarComponent implements OnInit, AfterViewInit, OnChanges, Afte
   public curr_month: Calendar;
   public today = new Date();
 
-  // get_this_month() {
-  //   this.curr_month.month = this.today.getMonth();
-  //   console.log(this.today.getMonth());
-  // }
-  //
+
   getName() {
     this.displayMilestoneName = this.msStore.calendarMilestoneName;
   }
@@ -33,24 +29,11 @@ export class CalendarComponent implements OnInit, AfterViewInit, OnChanges, Afte
   }
 
   constructor(public msStore: MilestoneStoreService,
-              public calService: CalendarcolorService) { }
-  //
-  // getColor(d) {
-  //   document.getElementById(d.getDate().toString()).classList.add('active');
-  // }
-  //
-  // prev_month() {
-  //
-  // }
-  //
-  // next_month() {
-  //
-  // }
-  //
-  // ngAfterViewInit() {
-  //   // this.get_this_month();
-  // }
-  //
+              public calService: CalendarcolorService
+              ) { }
+
+
+
   ngOnInit() {
     if (this.displayMilestoneName !== null) {
       this.calendarMilestone = this.msStore.calendarMilestone;
@@ -78,9 +61,10 @@ export class CalendarComponent implements OnInit, AfterViewInit, OnChanges, Afte
     this.calService.update_days_to_work(this.calendarMilestone, +1);
   }
 
+
  ngAfterViewInit() {
   $(function() {
-    function c() {
+    function c(month) {
       calendarHeader();
       var dayWeekday = h();
       var counter = 0;
@@ -100,21 +84,21 @@ export class CalendarComponent implements OnInit, AfterViewInit, OnChanges, Afte
         } else {
           var v = dayWeekday[c].day;
           var b = dayWeekday[c].weekday;
-          var m = g(new Date(t, n - 1, v)) ? '<div class="today">' : "<div>";
-
+          var m = g(new Date(t, n - 1, v)) ? '<div class="today" "month">' : "<div>";
+          // var monthClass = String(month);
           //adding divs of each day
-          l.append("<div id = '" + v + "'"+ "class = " + b + ">" + v + "</div>");
+          l.append("<div id = '" + v  + "'"+ "class = " + b + ">" + v + "</div>");
         }
       }
       var y = o[n - 1];
       a
-        .css({"background-color": "pink",
+        .css({"background-color": "SteelBlue ",
               "padding-bottom": 0 + "px"
       })
         .find("h1")
         .text(i[n - 1] + " " + t);
-      f.find("div").css("color", "pink");
-      l.find(".today").css("background-color", "pink");
+      f.find("div").css("color", "SteelBlue ");
+      // l.find(".today").css("background-color", "pink");
       d();
     }
 
@@ -222,8 +206,10 @@ export class CalendarComponent implements OnInit, AfterViewInit, OnChanges, Afte
     var a = u.find("#calendar_header");
     var f = u.find("#calendar_weekdays");
     var l = u.find("#calendar_content");
+    var month = new Date().getMonth();
+    var monthParam = Number(month) + 1;
     b();
-    c();
+    c(monthParam);
     a.find('i[class^="icon-chevron"]').on("click", function () {
       var e = $(this);
       var r = function (e) {
@@ -235,7 +221,7 @@ export class CalendarComponent implements OnInit, AfterViewInit, OnChanges, Afte
           n = 1;
           t++;
         }
-        c();
+        c(month);
       };
       if (e.attr("class").indexOf("left") != -1) {
         r("previous");
