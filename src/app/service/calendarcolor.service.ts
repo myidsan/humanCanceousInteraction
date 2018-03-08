@@ -42,16 +42,7 @@ export class CalendarcolorService {
       }
     }
 
-    this.selected_month += direction;
-    console.log(this.selected_month);
-
-    const j = 0;
-    // const empty_days = [j+4, j+3, j+3, j-1, j+1, j+4, j-1, j+2, j+5, j, j+3, j+5];
-    const empty_days = [4, 3, 3, 0, 5, 2, 0, 4, 1, 6, 3, 1];
-    // const month = Number(this.curr_month);
-    // console.log(month);
-    let val = empty_days[this.selected_month];
-    console.log(val);
+    
 
     for (let i = 0; i < ms.days.length; i++) {
       let class_one = ms.days[i];
