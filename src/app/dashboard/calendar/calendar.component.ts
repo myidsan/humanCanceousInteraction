@@ -29,10 +29,13 @@ export class CalendarComponent implements OnInit, AfterViewInit, OnChanges, Afte
   }
 
   constructor(public msStore: MilestoneStoreService,
-              public calService: CalendarcolorService
-              ) { }
+              public calService: CalendarcolorService,
+              public calColor: CalendarcolorService) { }
 
-
+  updateCalendar(ms) {
+    this.calColor.update_days_to_work(this.msStore.calendarMilestone, 0);
+    console.log
+  }
 
   ngOnInit() {
     if (this.displayMilestoneName !== null) {
@@ -60,7 +63,6 @@ export class CalendarComponent implements OnInit, AfterViewInit, OnChanges, Afte
   next_month() {
     this.calService.update_days_to_work(this.calendarMilestone, +1);
   }
-
 
  ngAfterViewInit() {
   $(function() {
