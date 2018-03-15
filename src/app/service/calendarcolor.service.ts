@@ -34,7 +34,7 @@ export class CalendarcolorService {
 
 
   update_days_to_work(ms: Milestone, direction?: number) {
-    for (let i = (new Date(ms.startDate)).getDate(); i < 31; i++) {
+    for (let i = 1; i <= 31; i++) {
       if (ms.calender[i] !== null) {
         document.getElementById(`${i}`).classList.remove('active');
         document.getElementById(`${i}`).style['background-color'] = 'aliceblue';
@@ -43,14 +43,18 @@ export class CalendarcolorService {
     }
 
 
+
     for (let i = 0; i < ms.days.length; i++) {
       console.log(ms.days.length);
       let class_one = ms.days[i];
       let classes_one = document.querySelectorAll(`.${class_one}`) as HTMLCollectionOf<HTMLElement>;
 
       for (let j = 0; j < classes_one.length; j++) {
-        classes_one[j].classList.add('active');
-        classes_one[j].style.backgroundColor = 'white';
+        if (Number(classes_one[j].innerHTML) >= this.today_date) {
+          console.log(classes_one[j].innerHTML);
+          classes_one[j].classList.add('active');
+          classes_one[j].style.backgroundColor = 'white';
+        }
       }
     }
 
