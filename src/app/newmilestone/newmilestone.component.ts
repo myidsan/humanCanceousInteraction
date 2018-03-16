@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { MilestoneStoreService } from '../service/milestone-store.service';
 import { Milestone, MilestoneMaker } from '../model/milestone';
 import {isDate, log} from 'util';
+import { AuthService } from '../core/auth.service';
 
 @Component({
   selector: 'app-newmilestone',
@@ -31,12 +32,17 @@ export class NewmilestoneComponent implements OnInit {
   today = new Date();
 
   constructor(public msStore: MilestoneStoreService,
-              public router: Router) { }
+              public router: Router,
+              public authservice: AuthService) { }
 
   public ms = new MilestoneMaker( this.id, this.title, this.days, this.daysBool,
                                  this.startDate, this.endDate, 0, this.days_to_work, false, false, []);
 
 
+
+ logout() {
+   this.authservice.signOut();
+ }
   freqCheck() {
     this.daysBool[0] = this.sun;
     this.daysBool[1] = this.mon;

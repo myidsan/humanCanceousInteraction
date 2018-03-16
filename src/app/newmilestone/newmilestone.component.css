@@ -2,6 +2,15 @@
   background-color: aliceblue;
 }
 
+.mat-button {
+  float: right;
+  margin-left: 78%;
+  background-color: white;
+  /* border: solid;
+  border-width: 0.1rem;
+  border-color: black; */
+}
+
 #header {
   background-color: #cce9ff;
 }
